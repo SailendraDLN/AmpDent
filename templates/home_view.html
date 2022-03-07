@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
+    {% for object in objects %}
     <p><a href="questions/{{object.id}}/">{{object.content}}</a></p>
     <hr>
+    {% endfor %}
 {% endblock content %}

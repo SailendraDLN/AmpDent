@@ -4,8 +4,8 @@ from django.template.loader import render_to_string
 from questions.models import Question
 
 def home_view(request):
-    question_obj = Question.objects.get(id=1)
+    question_obj = Question.objects.all()
     context = {
-        "object": question_obj
+        "objects": question_obj
     }
     return render(request, "home_view.html", context=context)
