@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-
-
+    <div style="display: flex;">
+        <h3>Question : </h3><h3>{{object.topic}}</h3>
+    </div>
+    <p>{{object.content}}</p>
+    <span>asked : {{object.asked}} times</span>
+    <a href="/">back to home</a>
+    <hr>
 {% endblock content %}
