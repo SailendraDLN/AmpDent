@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        .top-margin {
+            margin-top: 2em;
+        }
+    </style>
+    {% if not created %}
+    <form action="." method="POST">
+        {% csrf_token %}
+        <div>
+            <div style="display: flex;" class="top-margin">
+                <input type="text" name="topic" id="1" placeholder="Topic">
+                <input type="text" name="subject" id="2" placeholder="Sub">
+            </div>
+            <div class="top-margin">
+                <textarea name="content" id="3" cols="30" rows="10" placeholder="content of the question"></textarea>
+            </div>
+            <div style="display: flex;" class="top-margin">
+                <input type="number" name="asked" id="4" placeholder="asked">
+                <input type="number" name="marks" id="5" placeholder="marks">
+            </div>
+        </div>
+        <button type="submit" class="top-margin">Submit</button>
+    </form>
+    {% else %}
+        <h3><a href="/questions/{{object.id}}/" style="text-decoration: none;">{{object.topic}}</a></h3>
+        <h3>Your article was created in db</h3>
+    {% endif %}
+{% endblock content %}
