@@ -1,19 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <form action="">
-        <input type="text" name="q" id="1"  />
+    <form>
+        <input type="text" name="q"  />
         <input type="submit"  />
     </form>
 
-    {% for object in objects %}
-    <div style="display: flex;">
-        <h3>Question :__</h3><h3>{{object.topic}}</h3>
-    </div>
-    <p>{{object.content}}</p>
-    <span>asked : {{object.asked}} times</span>
-    <br>
-    <a href="/">back to home</a>
-    <hr>
-    {% endfor %}
+    {% if objects %}
+        {% for object in objects %}
+        <div style="display: flex;">
+            <h3>Question :__</h3><h3>{{object.topic}}</h3>
+        </div>
+        <p>{{object.content}}</p>
+        <span>asked : {{object.asked}} times</span>
+        <br>
+        <a href="/">back to home</a>
+        <hr>
+        {% endfor %}
+    {% endif %}
 {% endblock content %}

@@ -12,6 +12,7 @@ def question_view(request, id=None):
 
 def question_search_view(request):
     query_dict = request.GET
+    #print(query_dict)
     query = query_dict.get("q")
     question_objs = None
     if query is not None:
