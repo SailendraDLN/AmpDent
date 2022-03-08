@@ -21,3 +21,25 @@ def question_search_view(request):
         "objects": question_objs
     }
     return render(request,"qa/search.html",context=context)
+
+def question_create_view(request):
+    context = {}
+    if request.method == "POST":
+
+        topic = request.POST.get("topic")
+        content = request.POST.get("content")
+        marks = request.POST.get("marks")
+        asked = request.POST.get("asked")
+        subject = request.POST.get("subject")
+
+        question_obj = Question.objects.create(
+            topic = topic,
+            content = content,
+            marks = marks,
+            asked = asked,
+            subject = subject
+        )
+
+        context["object"] = question_obj
+        context["created"] = True
+    return render(request, "qa/create.html", context=context)
