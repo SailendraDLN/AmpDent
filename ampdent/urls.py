@@ -16,11 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import home_view
-from questions import views
+from questions.views import (
+    question_create_view,
+    question_search_view,
+    question_view
+)
+from accounts.views import (
+    login_view
+)
 urlpatterns = [
     path('', home_view),
-    path('questions/', views.question_search_view),
-    path('questions/create/', views.question_create_view),
-    path('questions/<int:id>/', views.question_view),
+    path('questions/', question_search_view),
+    path('questions/create/', question_create_view),
+    path('questions/<int:id>/', question_view),
     path('admin/', admin.site.urls),
+    path('accounts/login', login_view)
 ]
