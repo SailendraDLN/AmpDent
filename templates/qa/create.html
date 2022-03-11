@@ -2,14 +2,15 @@
 
 {% block content %}
     <style>
-        .top-margin {
+        .margin {
             margin-top: 2em;
         }
     </style>
     {% if not created %}
     <form action="." method="POST">
         {% csrf_token %}
-        <div>
+            {{form.as_p}}
+        <!-- <div>
             <div style="display: flex;" class="top-margin">
                 <input type="text" name="topic" id="1" placeholder="Topic">
                 <input type="text" name="subject" id="2" placeholder="Sub">
@@ -21,7 +22,7 @@
                 <input type="number" name="asked" id="4" placeholder="asked">
                 <input type="number" name="marks" id="5" placeholder="marks">
             </div>
-        </div>
+        </div> -->
         <button type="submit" class="top-margin">Submit</button>
     </form>
     {% else %}
