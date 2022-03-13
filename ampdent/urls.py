@@ -23,7 +23,8 @@ from questions.views import (
 )
 from accounts.views import (
     login_view,
-    logout_view
+    logout_view,
+    register_view
 )
 urlpatterns = [
     path('', home_view),
@@ -32,5 +33,6 @@ urlpatterns = [
     path('questions/<int:id>/', question_view),
     path('admin/', admin.site.urls),
     path('accounts/login/', login_view),
-    path('accounts/logout/', logout_view)
+    path('accounts/logout/', logout_view),
+    path('accounts/register/', register_view)
 ]
